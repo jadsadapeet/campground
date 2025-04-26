@@ -23,6 +23,16 @@
 	"review_not_found": "未找到该评论",
 	"not_authorized_review_delete": "您无权删除此评论",
 	"review_deleted": "评论已成功删除",
-	"must_book_before_review": "must_book_before_review",
-	"logged_out": "您已成功登出"
-}
+	"must_book_before_review": "您必须先预订营地才能发表评论",
+	"logged_out": "您已成功登出",
+	"campgrounds_fetched": "成功获取所有露营地",
+	"campground_fetched": "成功获取露营地",
+	"campground_created": "成功创建露营地",
+	"campground_updated": "成功更新露营地",
+	"campground_deleted": "成功删除露营地",
+	"server_error": "服务器错误",
+	"bad_request": "无效请求",
+	"missing_location_info": "请提供经纬度和距离",
+	"campgrounds_nearby_fetched": "成功获取附近露营地"
+	 }
+	  

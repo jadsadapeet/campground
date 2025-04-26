@@ -24,5 +24,16 @@
 	"not_authorized_review_delete": "You are not authorized to delete this review",
 	"review_deleted": "Review deleted successfully",
 	"must_book_before_review": "must_book_before_review",
-	"logged_out": "You have been logged out successfully"
+	"logged_out": "You have been logged out successfully",
+	"campgrounds_fetched": "All campgrounds fetched successfully",
+	"campground_fetched": "Campground fetched successfully",
+	"campground_created": "Campground created successfully",
+	"campground_updated": "Campground updated successfully",
+	"campground_deleted": "Campground deleted successfully",
+	"server_error": "Server error",
+	"bad_request": "Invalid request",
+	"missing_location_info": "Missing latitude, longitude or distance",
+	"campgrounds_nearby_fetched": "Nearby campgrounds fetched successfully"
+	
+	  
 }

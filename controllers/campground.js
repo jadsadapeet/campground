@@ -1,7 +1,7 @@
 const Campground = require("../models/campground");
 
 // ✅ GET: All campgrounds
-exports.getCampgrounds = async (req, res, next) => {
+exports.getCampgrounds = async (req, res) => {
   try {
     const campgrounds = await Campground.find();
 
@@ -20,18 +20,18 @@ exports.getCampgrounds = async (req, res, next) => {
       createdAt: camp.createdAt
     }));
 
-    res.status(200).json({ success: true, count: reordered.length, data: reordered });
+    res.status(200).json({ success: true, message: req.__('campgrounds_fetched'), count: reordered.length, data: reordered });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, message: req.__('server_error'), error: err.message });
   }
 };
 
 // ✅ GET: Single campground by ID
-exports.getCampground = async (req, res, next) => {
+exports.getCampground = async (req, res) => {
   try {
     const camp = await Campground.findById(req.params.id);
     if (!camp) {
-      return res.status(404).json({ success: false, message: "Campground not found" });
+      return res.status(404).json({ success: false, message: req.__('campground_not_found') });
     }
 
     const reordered = {
@@ -49,9 +49,9 @@ exports.getCampground = async (req, res, next) => {
       createdAt: camp.createdAt
     };
 
-    res.status(200).json({ success: true, data: reordered });
+    res.status(200).json({ success: true, message: req.__('campground_fetched'), data: reordered });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, message: req.__('server_error'), error: err.message });
   }
 };
 
@@ -63,39 +63,39 @@ exports.createCampground = async (req, res) => {
       user: req.user.id
     });
 
-    res.status(201).json({ success: true, data: campground });
+    res.status(201).json({ success: true, message: req.__('campground_created'), data: campground });
   } catch (err) {
     console.error(err);
-    res.status(400).json({ success: false, error: err.message });
+    res.status(400).json({ success: false, message: req.__('bad_request'), error: err.message });
   }
 };
 
 // ✅ PUT: Update campground
-exports.updateCampground = async (req, res, next) => {
+exports.updateCampground = async (req, res) => {
   try {
     const campground = await Campground.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
     });
     if (!campground) {
-      return res.status(404).json({ success: false, message: "Campground not found" });
+      return res.status(404).json({ success: false, message: req.__('campground_not_found') });
     }
-    res.status(200).json({ success: true, data: campground });
+    res.status(200).json({ success: true, message: req.__('campground_updated'), data: campground });
   } catch (err) {
-    res.status(400).json({ success: false, error: err.message });
+    res.status(400).json({ success: false, message: req.__('bad_request'), error: err.message });
   }
 };
 
 // ✅ DELETE: Delete campground
-exports.deleteCampground = async (req, res, next) => {
+exports.deleteCampground = async (req, res) => {
   try {
     const campground = await Campground.findByIdAndDelete(req.params.id);
     if (!campground) {
-      return res.status(404).json({ success: false, message: "Campground not found" });
+      return res.status(404).json({ success: false, message: req.__('campground_not_found') });
     }
-    res.status(200).json({ success: true, message: "Campground deleted" });
+    res.status(200).json({ success: true, message: req.__('campground_deleted') });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, message: req.__('server_error'), error: err.message });
   }
 };
 
@@ -104,7 +104,7 @@ exports.getNearbyCampgrounds = async (req, res) => {
   const { lat, lng, distance } = req.query;
 
   if (!lat || !lng || !distance) {
-    return res.status(400).json({ success: false, message: 'Please provide lat, lng and distance' });
+    return res.status(400).json({ success: false, message: req.__('missing_location_info') });
   }
 
   const radius = parseFloat(distance) * 1000;
@@ -137,9 +137,8 @@ exports.getNearbyCampgrounds = async (req, res) => {
       createdAt: camp.createdAt
     }));
 
-    res.status(200).json({ success: true, count: reordered.length, data: reordered });
+    res.status(200).json({ success: true, message: req.__('campgrounds_nearby_fetched'), count: reordered.length, data: reordered });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, message: req.__('server_error'), error: err.message });
   }
 };
-

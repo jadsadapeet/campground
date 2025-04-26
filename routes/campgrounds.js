@@ -9,7 +9,6 @@ const {
   deleteCampground,
   getNearbyCampgrounds // ✅ รวมฟังก์ชันนี้ด้วย
 } = require('../controllers/campground');
-
 const { protect, authorize } = require('../middleware/auth');
 
 // ✅ ต้องมาก่อน /:id

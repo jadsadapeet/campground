@@ -40,7 +40,7 @@ exports.createBooking = async (req, res) => {
       message: `${req.__('booking_success')}\nCampground: ${campground.name}\nFrom: ${dateFrom}\nTo: ${dateTo}`
     });
 
-    res.status(201).json({ success: true,message:req.__('booking_created_successfully'), data: booking });
+    res.status(201).json({ success: true,message:req.__('booking_created_successfully'), data: booking  });
 
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

@@ -23,6 +23,17 @@
 	"review_not_found": "ไม่พบรีวิวนี้",
 	"not_authorized_review_delete": "คุณไม่มีสิทธิ์ลบรีวิวนี้",
 	"review_deleted": "ลบรีวิวเรียบร้อยแล้ว",
-	"must_book_before_review": "must_book_before_review",
-	"logged_out": "ออกจากระบบเรียบร้อยแล้ว"
+	"must_book_before_review": "คุณต้องจองแคมป์ก่อนจึงจะสามารถรีวิวได้",
+	"logged_out": "ออกจากระบบเรียบร้อยแล้ว",
+	"campgrounds_fetched": "ดึงข้อมูลแคมป์ทั้งหมดสำเร็จ",
+	"campground_fetched": "ดึงข้อมูลแคมป์สำเร็จ",
+	"campground_created": "สร้างแคมป์ใหม่สำเร็จ",
+	"campground_updated": "อัปเดตแคมป์สำเร็จ",
+	"campground_deleted": "ลบแคมป์สำเร็จ",
+	"server_error": "ข้อผิดพลาดของเซิร์ฟเวอร์",
+	"bad_request": "คำขอไม่ถูกต้อง",
+	"missing_location_info": "กรุณาระบุพิกัดและระยะทาง",
+	"campgrounds_nearby_fetched": "ดึงข้อมูลแคมป์ใกล้เคียงสำเร็จ"
+
+	  
 }
